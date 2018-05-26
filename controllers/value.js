@@ -1,5 +1,5 @@
 module.exports = (app) => {
-
+  
   const value = {};
 
   value.get = (req, res) => {
@@ -9,4 +9,5 @@ module.exports = (app) => {
   }
 
   return value;
+
 }
