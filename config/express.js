@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 
 app.use(
-  morgan(process.env.logger == 'dev' ? 'dev' : 'combined', {
+  morgan('combined', {
     stream: { write: msg => logger.info(msg) }
   })
 );
