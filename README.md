@@ -1,40 +1,7 @@
-# api-node
+# Node.js Hello World
 
-Esta é uma estrutura básica com alguns recursos incluidos para o desenvolvimento de APIs com node.
+This sample demonstrates a tiny Hello World node.js app for [App Service Web App](https://docs.microsoft.com/azure/app-service-web).
 
-## Iniciar aplicação
+# Contributing
 
-Para iniciar você só pricisa desses 2 comandos na pasta raiz.
-```
-npm install
-npm start
-```
-
-### Pré Requisito
-
-Você precisa ter instalado o [NodeJS](https://nodejs.org/en/) e o [Nodemon](https://github.com/remy/nodemon)
-
-Para instalar o Nodemon já com o NodeJS e o npm instalado
-```
-npm install -g nodemon
-```
-Caso você não queira usar o Nodemon basta ir no arquivo package.json na parte de scripts e mudar a linha
-```
-"start": "nodemon",
-```
-para
-```
-"start": "node cluster.js",
-```
-
-## Ambiente
-
-Há algumas variaveis de ambiente que devem ser setadas antes de ultilizar essa ferramenta.
-
-**port:** Porta do servidor Node.
-
-**logger:** Nivel de log. `error`, `warn`, `info`, `verbose`, `debug` ou `silly`.
-
-## Authors
-
-* **David Washington** - [davidwashington833](https://github.com/DavidWashington833)
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

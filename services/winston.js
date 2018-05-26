@@ -8,11 +8,11 @@ if (!fs.existsSync('logs')) {
 const logger = new winston.Logger({
   transports: [
     new winston.transports.Console({
-      level: process.env.logger,
+      level: 'silly',
       colorize: true
     }),
     new winston.transports.File({
-      level: process.env.logger,
+      level: 'silly',
       filename: 'logs/logs.log',
       maxsize: 100000,
       maxFiles: 10
