@@ -5,11 +5,12 @@
     "private": true,
     "author": "David Washington",
     "license": "ISC",
+    "main": "server.js",
     "engines": {
         "node": ">=6.9.1"
     },
     "scripts": {
-        "start": "node index.js",
+        "start": "nodemon",
         "test": "mocha"
     },
     "repository": {
