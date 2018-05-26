@@ -20,6 +20,4 @@ const logger = new winston.Logger({
   ]
 });
 
-logger.info('winston ready.');
-
 module.exports = logger;
