@@ -3,7 +3,7 @@ const os = require('os');
 
 const logger = require('./services/winston');
 
-const cpus = os.cpus()
+const cpus = os.cpus();
 
 logger.info('executed thread');
 
@@ -16,8 +16,8 @@ if (cluster.isMaster) {
     logger.info('cluster conected', worker.process.pid));
 
   cluster.on('exit', (worker) => {
-    logger.info('cluster %d disconnected', worker.process.pid)
-    cluster.fork()
+    logger.info('cluster %d disconnected', worker.process.pid);
+    cluster.fork();
   })
 }
 else {
