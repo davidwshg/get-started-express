@@ -2,7 +2,7 @@
   "name": "api-node",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "cluster.js",
   "scripts": {
     "start": "nodemon"
   },
