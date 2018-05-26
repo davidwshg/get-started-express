@@ -1,0 +1,23 @@
+{
+  "name": "api-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidWashington833/api-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidWashington833/api-node/issues"
+  },
+  "homepage": "https://github.com/DavidWashington833/api-node#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
