@@ -2,14 +2,6 @@
 
 Esta é uma estrutura básica com alguns recursos incluidos para o desenvolvimento de APIs com node.
 
-## Iniciar aplicação
-
-Para iniciar você só pricisa desses 2 comandos na pasta raiz.
-```
-npm install
-npm start
-```
-
 ### Pré-Requisito
 
 Você precisa ter instalado o [NodeJS](https://nodejs.org/en/) e o [Nodemon](https://github.com/remy/nodemon)
@@ -25,6 +17,14 @@ Caso você não queira usar o Nodemon basta ir no arquivo package.json na parte 
 para
 ```
 "start": "node servers.js",
+```
+
+## Iniciar aplicação
+
+Para iniciar você só pricisa desses 2 comandos na pasta raiz.
+```
+npm install
+npm start
 ```
 
 ## Ambiente
