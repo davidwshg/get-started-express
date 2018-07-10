@@ -1,4 +1,4 @@
-# api-node
+# get-started-nodeapi
 
 Esta é uma estrutura básica com alguns recursos incluidos para o desenvolvimento de APIs com node.
 
