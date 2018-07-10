@@ -10,7 +10,7 @@ npm install
 npm start
 ```
 
-### Pré Requisito
+### Pré-Requisito
 
 Você precisa ter instalado o [NodeJS](https://nodejs.org/en/) e o [Nodemon](https://github.com/remy/nodemon)
 
