@@ -1,40 +1,48 @@
-# get-started-nodeapi
+# get-started-express
 
-Esta é uma estrutura básica com alguns recursos incluidos para o desenvolvimento de APIs com node.
+This is a basic framework with some features for developing node APIs.
 
-### Pré-Requisito
+## Getting Started
 
-Você precisa ter instalado o [NodeJS](https://nodejs.org/en/) e o [Nodemon](https://github.com/remy/nodemon)
+These instructions will get you a copy of the project up and running on your local machine.
 
-Para instalar o Nodemon já com o NodeJS e o npm instalado
+## Environment
+
+There are some environment variables that must be set before using this tool.
+
+**port (optional):** Server node port.
+
+**logger (optional):** Log level. `error`, `warn`, `info`, `verbose`, `debug` or `silly`.
+
+### Prerequisites
+
+You need to have [NodeJS](https://nodejs.org/en/) and [Nodemon](https://github.com/remy/nodemon)
+
+To install Nodemon already with NodeJS and npm installed.
 ```
 npm install -g nodemon
 ```
-Caso você não queira usar o Nodemon basta ir no arquivo package.json na parte de scripts e mudar a linha
+If you do not want to use Nodemon just go to the package.json file in the scripts section and change the line.
 ```
 "start": "nodemon",
 ```
-para
+for
 ```
 "start": "node servers.js",
 ```
 
-## Iniciar aplicação
+### Running the server
 
-Para iniciar você só pricisa desses 2 comandos na pasta raiz.
+To start you only need these 2 commands in the root folder.
 ```
 npm install
 npm start
 ```
 
-## Ambiente
-
-Há algumas variaveis de ambiente que devem ser setadas antes de ultilizar essa ferramenta.
-
-**port:** Porta do servidor Node.
-
-**logger:** Nivel de log. `error`, `warn`, `info`, `verbose`, `debug` ou `silly`.
-
 ## Authors
 
 * **David Washington** - [davidwashington833](https://github.com/DavidWashington833)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
