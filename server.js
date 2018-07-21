@@ -1,5 +1,5 @@
-const app = require('./config/express');
-const logger = require('./services/winston');
+const app = require('./app/config/express');
+const logger = require('./app/services/winston');
 
 const port = process.env.port || 1337;
 
