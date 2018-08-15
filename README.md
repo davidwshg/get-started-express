@@ -6,7 +6,7 @@ This is a basic framework with some features for developing node APIs.
 
 These instructions will get you a copy of the project up and running on your local machine.
 
-## Environment
+### Environment
 
 There are some environment variables that must be set before using this tool.
 
