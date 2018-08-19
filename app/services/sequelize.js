@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import usuario from '../models/usuario';
+import user from '../models/user';
 import log from './winston';
 
 const {
@@ -36,6 +36,6 @@ const db = {
     sequelize: sequelize
 };
 
-db.usuario = usuario(sequelize, Sequelize);
+db.user = user(sequelize, Sequelize);
 
 export default db;
