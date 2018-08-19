@@ -1,6 +1,6 @@
 import { default as app } from '../config/express';
-import { default as value } from './value';
+import { default as user } from './user';
 
-value(app);
+user(app);
 
 export default app;
