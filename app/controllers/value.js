@@ -1,13 +1,11 @@
-module.exports = (app) => {
-  
-  const value = {};
+class Value {
 
-  value.get = (req, res) => {
+  get(req, res) {
     const values = ['v1', 'v2', 'v3'];
 
     res.status(200).send(values);
   }
 
-  return value;
-
 }
+
+export default new Value;
