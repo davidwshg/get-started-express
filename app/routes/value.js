@@ -1,7 +1,5 @@
-module.exports = (app) => {
+import { default as controller } from '../controllers/value';
 
-  const value = app.controllers.value;
-
-  app.get('/value', value.get);
-
+export default (app) => {
+  app.get('/value', controller.get);
 }
