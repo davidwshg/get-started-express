@@ -1,17 +1,17 @@
-const winston = require('winston');
-const fs = require('fs');
+import { Logger, transports as _transports } from 'winston';
+import { existsSync, mkdirSync } from 'fs';
 
-if (!fs.existsSync('logs')) {
-  fs.mkdirSync('logs');
+if (!existsSync('logs')) {
+  mkdirSync('logs');
 }
 
-const logger = new winston.Logger({
+const logger = new Logger({
   transports: [
-    new winston.transports.Console({
+    new _transports.Console({
       level: process.env.logger,
       colorize: true
     }),
-    new winston.transports.File({
+    new _transports.File({
       level: process.env.logger,
       filename: 'logs/logs.log',
       maxsize: 100000,
@@ -20,4 +20,4 @@ const logger = new winston.Logger({
   ]
 });
 
-module.exports = logger;
+export default logger;
