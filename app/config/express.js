@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(express.static('./app/public'));
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(
 	morgan('combined', {
 		stream: { write: msg => log.info(msg) }

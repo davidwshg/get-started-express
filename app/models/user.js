@@ -14,13 +14,5 @@ export default (sequelize, Sequelize) => {
     }
   );
 
-  User.sync({ force: true }).then(() => {
-    // Table created
-    return User.create({
-      firstName: 'John',
-      lastName: 'Hancock'
-    });
-  });
-
   return User;
 }
