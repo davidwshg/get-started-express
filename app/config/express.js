@@ -1,27 +1,22 @@
-const express = require('express');
-const consign = require('consign');
-const bodyParser = require('body-parser');
-const expressValidator = require('express-validator');
-const morgan = require('morgan');
+import express from 'express';
+import bodyParser from 'body-parser';
+import expressValidator from 'express-validator';
+import morgan from 'morgan';
+import cors from 'cors';
 
-const logger = require('../services/winston');
+import log from '../services/winston';
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressValidator());
-app.use(express.static('./public'));
+app.use(express.static('./app/public'));
+app.use(cors());
 app.use(
-  morgan('combined', {
-    stream: { write: msg => logger.info(msg) }
-  })
+	morgan('combined', {
+		stream: { write: msg => log.info(msg) }
+	})
 );
 
-consign({ cwd: 'app' })
-  .include('services')
-  .then('controllers')
-  .then('routes')
-  .into(app);
-
-module.exports = app;
+export default app
