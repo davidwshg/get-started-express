@@ -1,42 +1,27 @@
 {
-    "name": "get-started-express",
-    "description": "get-started-express",
-    "version": "0.0.1",
-    "private": true,
-    "author": "David Washington",
-    "license": "MIT",
-    "main": "server.js",
-    "engines": {
-        "node": ">=8.11.4"
-    },
-    "scripts": {
-        "start": "cross-env logger=info port=8080 nodemon -r esm cluster.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/DavidWashington833/api-node.git"
-    },
-    "keywords": [],
-    "bugs": {
-        "url": "https://github.com/DavidWashington833/api-node/issues"
-    },
-    "homepage": "https://github.com/DavidWashington833/api-node#readme",
-    "dependencies": {
-        "axios": "^0.18.0",
-        "body-parser": "^1.18.3",
-        "cors": "^2.8.4",
-        "cross-env": "^5.2.0",
-        "esm": "^3.0.77",
-        "express": "^4.16.3",
-        "express-validator": "^5.2.0",
-        "morgan": "^1.9.0",
-        "mysql2": "^1.6.1",
-        "sequelize": "^4.38.0",
-        "winston": "^2.4.2"
-    },
-    "devDependencies": {
-        "@types/cors": "^2.8.4",
-        "chai": "^4.1.2",
-        "chai-http": "^4.0.0"
-    }
+	"name": "get-started-express",
+	"description": "get-started-express",
+	"version": "0.0.1",
+	"author": "David Washington",
+	"license": "MIT",
+	"main": "index.js",
+	"engines": {
+		"node": "10.14.0"
+	},
+	"scripts": {
+		"dev": "cross-env logger=info port=8080 nodemon -r esm index.js"
+	},
+	"dependencies": {
+		"axios": "^0.18.0",
+		"body-parser": "^1.18.3",
+		"cors": "^2.8.4",
+		"cross-env": "^5.2.0",
+		"esm": "^3.0.77",
+		"express": "^4.16.3",
+		"morgan": "^1.9.0",
+		"winston": "^2.4.2"
+	},
+	"devDependencies": {
+		"nodemon": "^1.18.7"
+	}
 }
