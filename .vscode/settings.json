@@ -1,0 +1,14 @@
+
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/.sass-cache": true,
+    "**/.vscode": true
+  },
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "editor.snippetSuggestions": "top",
+  "files.insertFinalNewline": true
+}
