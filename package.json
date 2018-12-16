@@ -1,7 +1,7 @@
 {
 	"name": "get-started-express",
 	"description": "get-started-express",
-	"version": "0.0.1",
+	"version": "2.0.0",
 	"author": "David Washington",
 	"license": "MIT",
 	"main": "index.js",
@@ -11,7 +11,7 @@
 	"scripts": {
 		"dev": "cross-env logger=info port=8080 nodemon -r esm index.js"
 	},
-	"dependencies": {
+	"dependencies": {0
 		"axios": "^0.18.0",
 		"body-parser": "^1.18.3",
 		"cors": "^2.8.4",
