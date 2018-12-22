@@ -9,7 +9,6 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('./app/public'));
 app.use(cors());
 app.use(
 	morgan('combined', {
