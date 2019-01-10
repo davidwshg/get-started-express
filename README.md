@@ -12,7 +12,7 @@ You need to have [NodeJS](https://nodejs.org/en/).
 
 ### Environment
 
-**port (optional):** Server node port. You can change value in `package.json`. You can change value in `package.json`.
+**port (optional):** Server node port. You can change value in `package.json`.
 
 **logger (optional):** Log level. `error`, `warn`, `info`, `verbose`, `debug` or `silly`. You can change value in `package.json`.
 
