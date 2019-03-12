@@ -5,9 +5,6 @@
 	"author": "David Washington",
 	"license": "MIT",
 	"main": "index.js",
-	"engines": {
-		"node": "10.14.0"
-	},
 	"scripts": {
 		"dev": "cross-env logger=info port=8080 nodemon -r esm index.js"
 	},
