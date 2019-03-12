@@ -6,7 +6,8 @@
 	"license": "MIT",
 	"main": "index.js",
 	"scripts": {
-		"dev": "cross-env logger=info port=8080 nodemon -r esm index.js"
+		"start": "cross-env logger=info port=5000 node -r esm index.js",
+		"dev": "cross-env logger=debug port=5000 nodemon -r esm index.js"
 	},
 	"dependencies": {
 		"axios": "^0.18.0",
