@@ -1,20 +1,18 @@
 # get-started-express
 
-This is a basic framework with some features for developing node APIs.
+Setup for Express application.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.
 
-### Prerequisites
-
-You need to have [NodeJS](https://nodejs.org/en/).
-
 ### Environment
 
-**port (optional):** Server node port. You can change value in `package.json`.
+You can change this values in `package.json`.
 
-**logger (optional):** Log level. `error`, `warn`, `info`, `verbose`, `debug` or `silly`. You can change value in `package.json`.
+**port (optional):** Server node port.
+
+**logger (optional):** Log level. `error`, `warn`, `info`, `verbose`, `debug` or `silly`.
 
 ### Running the server
 
