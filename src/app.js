@@ -1,5 +1,5 @@
-import log from './app/services/winston';
-import app from './app/routes/handle';
+import log from './services/winston';
+import app from './routes/handle';
 
 const port = process.env.port || 5000;
 
