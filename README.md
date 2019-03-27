@@ -21,11 +21,6 @@ To start you only need these 2 commands in the root folder.
 yarn
 yarn dev
 ```
-or
-```
-npm i
-npm run dev
-```
 
 ## License
 
