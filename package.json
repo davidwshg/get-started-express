@@ -1,10 +1,10 @@
 {
 	"name": "get-started-express",
-	"description": "get-started-express",
+	"description": "Setup for Express application.",
 	"version": "2.0.0",
 	"author": "David Washington",
 	"license": "MIT",
-	"main": "index.js",
+	"main": "dist/app.js",
 	"scripts": {
 		"build": "babel src/ -d dist/",
 		"start": "pm2 start dist/app.js -i 1 --no-daemon",
