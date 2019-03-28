@@ -1,4 +1,4 @@
-import { default as app } from '../config/express';
+import app from '../config/express';
 import value from './value';
 
 value(app);
