@@ -11,9 +11,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(
-	morgan('combined', {
-		stream: { write: msg => log.info(msg) }
-	})
+  morgan('combined', {
+    stream: { write: msg => log.info(msg) }
+  })
 );
 
 export default app;
