@@ -8,6 +8,6 @@ services:
     volumes:
       - .:/usr/app
     ports:
-      - "3000:5000"
+      - "5000:5000"
     command:
       "yarn dev"
