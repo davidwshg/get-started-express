@@ -1,14 +1,14 @@
 FROM node:alpine
 
-RUN npm install -g yarn pm2
+RUN npm install -g pm2
 
-ENV APP_ROOT src
+EXPOSE 5000
 
-RUN mkdir ${APP_ROOT}
-ADD . ${APP_ROOT}
-WORKDIR ${APP_ROOT}
+WORKDIR /usr/app
 
-RUN yarn install
-RUN yarn build
+COPY . .
+
+RUN npm install
+RUN npm run build
 
 CMD yarn start
