@@ -1,4 +1,4 @@
-import { Logger, transports as _transports } from 'winston';
+import { Logger, transports } from 'winston';
 import { existsSync, mkdirSync } from 'fs';
 
 if (!existsSync('logs')) {
@@ -7,11 +7,11 @@ if (!existsSync('logs')) {
 
 const logger = new Logger({
   transports: [
-    new _transports.Console({
+    new transports.Console({
       level: process.env.logger,
       colorize: true
     }),
-    new _transports.File({
+    new transports.File({
       level: process.env.logger,
       filename: 'logs/logs.log',
       maxsize: 100000,
