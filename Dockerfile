@@ -11,4 +11,4 @@ COPY . .
 RUN npm install
 RUN npm run build
 
-CMD yarn start
+CMD npm start
