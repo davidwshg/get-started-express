@@ -7,7 +7,7 @@
 	"main": "dist/app.js",
 	"scripts": {
 		"build": "babel src/ -d dist/",
-		"start": "pm2 start dist/app.js -i 1 --no-daemon",
+		"start": "pm2 start dist/app.js --no-daemon",
 		"dev": "nodemon src/app.js --exec babel-node"
 	},
 	"dependencies": {
