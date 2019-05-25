@@ -5,6 +5,8 @@ import cors from 'cors';
 
 import log from '../services/winston';
 
+import value from '../routes/value';
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,5 +17,7 @@ app.use(
     stream: { write: msg => log.info(msg) }
   })
 );
+
+app.use('/value', value);
 
 export default app;

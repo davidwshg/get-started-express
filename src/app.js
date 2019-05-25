@@ -1,5 +1,5 @@
 import log from './services/winston';
-import app from './routes/handle';
+import app from './config/express';
 
 const port = process.env.port || 5000;
 

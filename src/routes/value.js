@@ -1,5 +1,8 @@
+import express from 'express';
 import value from '../controllers/value';
 
-export default app => {
-  app.get('/value', value.get);
-};
+const router = express.Router();
+
+router.get('/', value.get);
+
+export default router;
