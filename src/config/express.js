@@ -12,11 +12,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(
-  morgan('combined', {
-    stream: { write: msg => log.info(msg) }
-  })
-);
+app.use(morgan('combined', {
+  stream: { write: msg => log.info(msg) },
+}));
 
 app.use('/value', value);
 

@@ -9,13 +9,13 @@ export default createLogger({
   transports: [
     new transports.Console({
       level: process.env.logger,
-      colorize: true
+      colorize: true,
     }),
     new transports.File({
       level: process.env.logger,
       filename: 'logs/logs.log',
       maxsize: 100000,
-      maxFiles: 10
-    })
-  ]
+      maxFiles: 10,
+    }),
+  ],
 });
