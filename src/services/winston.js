@@ -1,11 +1,11 @@
-import { Logger, transports } from 'winston';
+import { createLogger, transports } from 'winston';
 import { existsSync, mkdirSync } from 'fs';
 
 if (!existsSync('logs')) {
   mkdirSync('logs');
 }
 
-const logger = new Logger({
+export default createLogger({
   transports: [
     new transports.Console({
       level: process.env.logger,
@@ -19,5 +19,3 @@ const logger = new Logger({
     })
   ]
 });
-
-export default logger;
