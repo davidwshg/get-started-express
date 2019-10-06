@@ -1,17 +1,13 @@
 version: 2
 
-executors:
-  executor:
+jobs:
+  credential:
     docker:
       - image: ubuntu
     working_directory: ~/app
-
-jobs:
-  credential:
-    executor: executor
     steps:
       - run:
-          name: Installing deployment dependencies
+          name: Creating AWS credentials file
           working_directory: /
           command: |
             mkdir ~/.aws
@@ -22,7 +18,8 @@ jobs:
             echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
 
   setup:
-    executor: executor
+    docker:
+      - image: ubuntu
     steps:
       - run:
           name: Installing deployment dependencies
@@ -34,7 +31,8 @@ jobs:
             pip install awsebcli --upgrade
 
   deploy:
-    executor: executor
+    docker:
+      - image: ubuntu
     steps:
       - run:
           name: Deploying
