@@ -2,7 +2,9 @@ FROM node:alpine
 
 RUN npm install -g pm2
 
-EXPOSE 5000
+ENV port=80
+
+EXPOSE 80
 
 WORKDIR /usr/app
 

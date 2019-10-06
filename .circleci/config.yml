@@ -1,0 +1,55 @@
+version: 2
+
+executors:
+  executor:
+    docker:
+      - image: ubuntu
+    working_directory: ~/app
+
+jobs:
+  credential:
+    executor: executor
+    steps:
+      - run:
+          name: Installing deployment dependencies
+          working_directory: /
+          command: |
+            mkdir ~/.aws
+            touch ~/.aws/config
+            chmod 600 ~/.aws/config
+            echo "[profile eb-cli]" > ~/.aws/config
+            echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
+            echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+
+  setup:
+    executor: executor
+    steps:
+      - run:
+          name: Installing deployment dependencies
+          working_directory: /
+          command: |
+            apt-get -y -qq update
+            apt-get install python-pip python-dev build-essential
+            pip install --upgrade setuptools
+            pip install awsebcli --upgrade
+
+  deploy:
+    executor: executor
+    steps:
+      - run:
+          name: Deploying
+          command: eb deploy
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - deploy_prod:
+          requires:
+            - credential
+            - setup
+            - deploy
+          filters:
+            branches:
+              only:
+                - feat/elastic-beanstalk
