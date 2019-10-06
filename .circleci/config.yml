@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: ubuntu
     steps:
+      - checkout
       - run:
           name: Creating AWS credentials file
           working_directory: ~/app
@@ -26,11 +27,7 @@ jobs:
       - run:
           name: Deploying
           working_directory: ~/app
-          command: |
-            ls -la
-            pwd
-            ls -la ~
-            eb deploy
+          command: eb deploy
 
 workflows:
   version: 2
