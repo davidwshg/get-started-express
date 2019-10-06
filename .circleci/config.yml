@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Deploying
           working_directory: ~/app
-          command: eb deploy
+          command: eb init && eb deploy
 
 workflows:
   version: 2
