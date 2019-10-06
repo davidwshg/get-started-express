@@ -42,12 +42,14 @@ jobs:
 
 workflows:
   version: 2
+  deploy_prod:
+    jobs:
+      - credential
+      - setup
+      - deploy
   build:
     jobs:
-      - deploy:
-          requires:
-            - credential
-            - setup
+      - deploy_prod:
           filters:
             branches:
               only:
