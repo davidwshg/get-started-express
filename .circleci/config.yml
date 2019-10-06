@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Creating AWS credentials file
-          working_directory: ~/app
+          working_directory: /
           command: |
             mkdir ~/.aws
             touch ~/.aws/config
@@ -18,7 +18,6 @@ jobs:
             echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
       - run:
           name: Installing deployment dependencies
-          working_directory: ~/app
           command: |
             apt-get -y -qq update
             apt-get install -y python-pip python-dev build-essential
@@ -26,7 +25,6 @@ jobs:
             pip install awsebcli --upgrade
       - run:
           name: Deploying
-          working_directory: ~/app
           command: eb deploy
 
 workflows:
