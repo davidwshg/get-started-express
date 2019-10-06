@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  credential:
+  deploy_prod:
     docker:
       - image: ubuntu
     working_directory: ~/app
@@ -16,11 +16,6 @@ jobs:
             echo "[profile eb-cli]" > ~/.aws/config
             echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
             echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
-
-  setup:
-    docker:
-      - image: ubuntu
-    steps:
       - run:
           name: Installing deployment dependencies
           working_directory: /
@@ -29,22 +24,12 @@ jobs:
             apt-get install python-pip python-dev build-essential
             pip install --upgrade setuptools
             pip install awsebcli --upgrade
-
-  deploy:
-    docker:
-      - image: ubuntu
-    steps:
       - run:
           name: Deploying
           command: eb deploy
 
 workflows:
   version: 2
-  deploy_prod:
-    jobs:
-      - credential
-      - setup
-      - deploy
   build:
     jobs:
       - deploy_prod:
