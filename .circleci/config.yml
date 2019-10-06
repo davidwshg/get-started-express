@@ -44,11 +44,10 @@ workflows:
   version: 2
   build:
     jobs:
-      - deploy_prod:
+      - deploy:
           requires:
             - credential
             - setup
-            - deploy
           filters:
             branches:
               only:
