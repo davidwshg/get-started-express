@@ -1,0 +1,6 @@
+FROM circleci/node:10.16.0
+
+RUN sudo apt-get -y update && sudo apt-get -y upgrade
+RUN sudo apt-get install -y python-pip python-dev build-essential
+RUN sudo pip install --upgrade setuptools
+RUN sudo pip install awsebcli --upgrade

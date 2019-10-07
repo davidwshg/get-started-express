@@ -26,18 +26,6 @@ jobs:
           paths:
             - config
 
-  # setup:
-  #   executor: node-executor
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Installing deployment dependencies
-  #         command: |
-  #           sudo apt-get -y -qq update
-  #           sudo apt-get install -y python-pip python-dev build-essential
-  #           sudo pip install --upgrade setuptools
-  #           sudo pip install awsebcli --upgrade
-
   deploy:
     executor: node-executor
     steps:
@@ -53,11 +41,9 @@ workflows:
   build:
     jobs:
       - credential
-      # - setup
       - deploy:
           requires:
             - credential
-            # - setup
           filters:
             branches:
               only:
