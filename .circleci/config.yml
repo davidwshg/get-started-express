@@ -6,7 +6,6 @@ jobs:
     docker:
       - image: circleci/node:10.16.0
     steps:
-      - checkout
       - run:
           name: Creating AWS credentials file
           working_directory: /
