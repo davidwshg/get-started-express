@@ -53,7 +53,7 @@ workflows:
   build:
     jobs:
       - credential
-      - setup
+      # - setup
       - deploy:
           requires:
             - credential
