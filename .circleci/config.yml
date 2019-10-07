@@ -45,6 +45,8 @@ workflows:
   version: 2
   build:
     jobs:
+      - credential
+      - setup
       - deploy:
           requires:
             - credential
