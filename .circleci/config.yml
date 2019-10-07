@@ -50,7 +50,12 @@ workflows:
   version: 2
   deploy:
     jobs:
-      - credential
+      - credential:
+          filters:
+            branches:
+              only:
+                - master
+                - developer
       - deploy_to_prod:
           requires:
             - credential
