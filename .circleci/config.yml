@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: davidwfs/base-eb:tagname
+      - image: davidwfs/base-eb:latest
     working_directory: ~/app
 
 jobs:
