@@ -18,4 +18,6 @@ app.use(morgan('combined', {
 
 app.use('/value', value);
 
+app.get('/', (req, res) => res.send('Hello World!!!'));
+
 export default app;
