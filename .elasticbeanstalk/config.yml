@@ -1,6 +1,8 @@
 branch-defaults:
+  developer:
+    environment: get-started-express-dev
   master:
-    environment: get-started-express-dev2
+    environment: get-started-express-prod
     group_suffix: null
 global:
   application_name: get-started-express
