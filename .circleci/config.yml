@@ -1,12 +1,11 @@
 version: 2
 
 jobs:
-  deploy:
+  credential:
     working_directory: ~/app
     docker:
       - image: circleci/node:10.16.0
     steps:
-      - checkout
       - run:
           name: Creating AWS credentials file
           working_directory: /
@@ -17,6 +16,13 @@ jobs:
             echo "[profile eb-cli]" > ~/.aws/config
             echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
             echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+
+  setup:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:10.16.0
+    steps:
+      - checkout
       - run:
           name: Installing deployment dependencies
           command: |
@@ -24,15 +30,27 @@ jobs:
             sudo apt-get install -y python-pip python-dev build-essential
             sudo pip install --upgrade setuptools
             sudo pip install awsebcli --upgrade
+
+  deploy:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:10.16.0
+    steps:
+      - checkout
       - run:
           name: Deploying
           command: eb deploy
 
 workflows:
   version: 2
+  deploy_prod:
+    jobs:
+      - credential
+      - setup
+      - deploy
   build:
     jobs:
-      - deploy:
+      - deploy_prod:
           filters:
             branches:
               only:
