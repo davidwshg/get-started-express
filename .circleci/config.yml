@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: circleci/node:10.16.0
+      - image: davidwfs/base-eb:tagname
     working_directory: ~/app
 
 jobs:
@@ -21,22 +21,29 @@ jobs:
             echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
             echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
 
-  setup:
-    executor: node-executor
-    steps:
-      - checkout
-      - run:
-          name: Installing deployment dependencies
-          command: |
-            sudo apt-get -y -qq update
-            sudo apt-get install -y python-pip python-dev build-essential
-            sudo pip install --upgrade setuptools
-            sudo pip install awsebcli --upgrade
+      - persist_to_workspace:
+          root: ~/.aws
+          paths:
+            - config
+
+  # setup:
+  #   executor: node-executor
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Installing deployment dependencies
+  #         command: |
+  #           sudo apt-get -y -qq update
+  #           sudo apt-get install -y python-pip python-dev build-essential
+  #           sudo pip install --upgrade setuptools
+  #           sudo pip install awsebcli --upgrade
 
   deploy:
     executor: node-executor
     steps:
       - checkout
+      - attach_workspace:
+          at: ~/.aws
       - run:
           name: Deploying
           command: eb deploy
@@ -50,7 +57,7 @@ workflows:
       - deploy:
           requires:
             - credential
-            - setup
+            # - setup
           filters:
             branches:
               only:
