@@ -3,7 +3,6 @@ branch-defaults:
     environment: get-started-express-dev
   master:
     environment: get-started-express-prod
-    group_suffix: null
 global:
   application_name: get-started-express
   branch: null

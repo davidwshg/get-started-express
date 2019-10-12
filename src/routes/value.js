@@ -1,8 +1,9 @@
-import express from 'express';
-import value from '../controllers/value';
+import { Router } from 'express';
+import { get, getById } from '../controllers/value';
 
-const router = express.Router();
+const router = Router();
 
-router.get('/', value.get);
+router.get('/', get);
+router.get('/:id', getById);
 
 export default router;
