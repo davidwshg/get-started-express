@@ -8,8 +8,7 @@ if (!existsSync('logs')) {
 export default createLogger({
   transports: [
     new transports.Console({
-      level: process.env.logger,
-      colorize: true,
+      level: process.env.logger
     }),
     new transports.File({
       level: process.env.logger,
