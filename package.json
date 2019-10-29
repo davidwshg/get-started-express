@@ -7,7 +7,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
-    "start": "pm2 start dist/app.js",
+    "start": "pm2 start dist/app.js --no-daemon",
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/app.ts\" -e ts",
     "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'"
   },
