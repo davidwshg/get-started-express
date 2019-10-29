@@ -1,6 +1,6 @@
 # get-started-express
 
-Setup for Express application.
+Setup for Express application, this project include features like Typescript, TSLint, Dockerfile, Docker Compose, Elastic Beanstalk config, Circle CI config, Debugger config and some basic packages.
 
 ## Getting Started
 
@@ -12,6 +12,14 @@ To start you only need these 2 commands in the root folder.
 ```
 yarn
 yarn dev
+```
+
+### Docker Compose way
+
+To start in developer mode with docker-compose you need run
+```
+yarn
+docker-compose up
 ```
 
 ## License
