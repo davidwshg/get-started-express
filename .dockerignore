@@ -4,8 +4,11 @@ dist/
 package-lock.json
 *.log
 yarn.lock
-
-# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.git
+.gitignore
+.circleci/*
+.vscode/*
 .elasticbeanstalk/*
 .git
 .gitignore
