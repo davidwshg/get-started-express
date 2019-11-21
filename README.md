@@ -1,6 +1,6 @@
 # get-started-express
 
-Setup for Express application, this project include features like Typescript, TSLint, Dockerfile, Docker Compose, Elastic Beanstalk config, Circle CI config, Debugger config and some basic packages.
+Setup for Express application, this project include features like Typescript, TSLint, Dockerfile, Docker Compose, Elastic Beanstalk config, Circle CI config, Debugger config, Jest and some basic packages.
 
 ## Getting Started
 
