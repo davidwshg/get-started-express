@@ -4,6 +4,6 @@ import { get, getById } from '../controllers/value'
 const router = Router()
 
 router.get('/', get)
-router.get<{id: string}>('/:id', getById)
+router.get('/:id', getById)
 
 export default router
