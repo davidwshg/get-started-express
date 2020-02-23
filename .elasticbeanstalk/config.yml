@@ -8,7 +8,7 @@ global:
   branch: null
   default_ec2_keyname: aws-eb
   default_platform: Docker 18.06.1-ce
-  default_region: us-west-2
+  default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
   platform_name: null
