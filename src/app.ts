@@ -2,7 +2,7 @@ import cors from 'cors'
 import express from 'express'
 import morgan from 'morgan'
 
-import value from './routes/value'
+import routes from './routes'
 import log from './services/winston'
 
 const app = express()
@@ -14,6 +14,6 @@ app.use(morgan('combined', {
   stream: { write: msg => log.info(msg) },
 }))
 
-app.use('/value', value)
+app.use(routes)
 
 app.listen(port, () => log.info(`Server run in port ${port}.`))
