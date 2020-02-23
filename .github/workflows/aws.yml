@@ -50,8 +50,4 @@ jobs:
     - name: Deploy to Elastic Beanstalk
       id: eb-deploy
       run: |
-        sudo apt-get -y update && sudo apt-get -y upgrade
-        sudo apt-get install -y python-pip python-dev build-essential
-        sudo pip install --upgrade setuptools
-        sudo pip install awsebcli --upgrade
-        eb deploy
+        ls -la
