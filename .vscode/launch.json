@@ -8,11 +8,12 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/src/app.ts",
+      "program": "${workspaceFolder}/src/server.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js"
       ],
+      "runtimeVersion": "15.14.0",
       "internalConsoleOptions": "openOnSessionStart"
     },
     {
@@ -24,7 +25,16 @@
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js"
       ],
+      "runtimeVersion": "15.14.0",
       "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Lauch test",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "runtimeVersion": "15.14.0",
+      "internalConsoleOptions": "openOnFirstSessionStart"
     }
   ]
 }

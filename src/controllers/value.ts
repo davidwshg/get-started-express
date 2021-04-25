@@ -5,5 +5,10 @@ export const get: RequestHandler = (_, res) => res.send(values)
 
 export const getById: RequestHandler = (req, res) => {
   const { id } = req.params
-  res.send(values[Number(id)])
+
+  if (!values[Number(id)]) {
+    return res.status(404).send()
+  }
+
+  return res.send(values[Number(id)])
 }
