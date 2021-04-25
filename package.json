@@ -13,7 +13,7 @@
     "watch": "nodemon src/app.ts",
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "lint": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "dependencies": {
     "cors": "2.8.5",
