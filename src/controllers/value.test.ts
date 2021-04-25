@@ -12,7 +12,7 @@ describe('GET /values', () => {
     expect(response.status).toBe(200)
   })
 
-  it('Should return status 200', async () => {
+  it('Should return status 404', async () => {
     const response = await request(app).get('/values/4')
     expect(response.status).toBe(404)
   })
