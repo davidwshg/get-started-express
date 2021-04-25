@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "run server",
       "program": "${workspaceFolder}/src/server.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
@@ -19,7 +19,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch File",
+      "name": "run file",
       "program": "${file}",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
@@ -31,8 +31,17 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Lauch test",
+      "name": "run test",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "runtimeVersion": "15.14.0",
+      "internalConsoleOptions": "openOnFirstSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "run test file",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["${file}"],
       "runtimeVersion": "15.14.0",
       "internalConsoleOptions": "openOnFirstSessionStart"
     }
