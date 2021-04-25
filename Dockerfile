@@ -1,12 +1,10 @@
-FROM node:alpine
+FROM node:15.14.0-alpine
 
 WORKDIR /usr/app
-ENV port=5000
-EXPOSE 5000
 
 ADD ./package.json .
+ADD ./package-lock.json .
 RUN npm install
-RUN npm install -g pm2
 
 ADD . .
 

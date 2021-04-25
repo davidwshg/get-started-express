@@ -1,21 +1,16 @@
-import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
 import cors from 'cors'
 import express from 'express'
-import morgan from 'morgan'
 
 import value from './routes/value'
-import log from './services/winston'
 
+dotenv.config()
 const app = express()
-const port = process.env.port || 5000
+const port = process.env.PORT || 5000
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(express.json())
 app.use(cors())
-app.use(morgan('combined', {
-  stream: { write: msg => log.info(msg) },
-}))
 
-app.use('/value', value)
+app.use('/values', value)
 
-app.listen(port, () => log.info(`Server run in port ${port}.`))
+app.listen(port, () => console.log(`Server run in port ${port}.`))
