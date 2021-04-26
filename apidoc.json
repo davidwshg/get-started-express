@@ -1,0 +1,8 @@
+{
+  "name": "get-started-express",
+  "version": "1.0.0",
+  "description": "Setup for Express application.",
+  "title": "get-started-express",
+  "url": "http://localhost:5000",
+  "sampleUrl": "http://localhost:5000"
+}
