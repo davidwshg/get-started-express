@@ -34,3 +34,21 @@ export class InternalServiceError extends BaseError {
     super({ ...defaultErrorParam, name: 'InternalServiceError' })
   }
 }
+
+export class ValidationError extends BaseError {
+  public path?: string
+  public errors?: Array<BaseError>
+  constructor(defaultErrorParam: IDefaultErrorParam & { path?: string, errors?: Array<BaseError> }) {
+    super({ ...defaultErrorParam, name: 'ValidationError' })
+
+    if (defaultErrorParam.errors) {
+      this.errors = defaultErrorParam.errors
+    }
+
+    if (defaultErrorParam.path) {
+      this.path = defaultErrorParam.path
+    }
+  }
+}
+
+export const errorNames = [NotFoundError.name, InternalServiceError.name, ValidationError.name]

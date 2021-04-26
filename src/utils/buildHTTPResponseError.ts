@@ -1,15 +1,15 @@
-import { BaseError, InternalServiceError, IDefaultErrorParam } from './errors'
+import { BaseError, InternalServiceError, IDefaultErrorParam, errorNames } from './errors'
 import getStatusCodeOfError from './getStatusCodeOfError'
 
 const buildHTTPResponseError = (originalError: Error, requestID: string): {
   status: number,
-  body: IDefaultErrorParam & { name: string }
+  body: IDefaultErrorParam & { name: string, errors?: Array<string> }
 } => {
   const status = getStatusCodeOfError(originalError)
-  const error: BaseError =
-    status >= 500 || !(originalError instanceof BaseError) ?
+  const error: BaseError & { errors?: Array<string> } =
+    status >= 500 || !(errorNames.includes(originalError.name)) ?
       new InternalServiceError({ requestID, message: 'This is a internal server error, contact the developers.' }) :
-      originalError
+      originalError as BaseError
 
   return {
     status,
@@ -17,7 +17,8 @@ const buildHTTPResponseError = (originalError: Error, requestID: string): {
       name: error.name,
       message: error.message,
       requestID: error.requestID,
-      ...(error.extraInfo ? { extraInfo: error.extraInfo } : {})
+      ...(error.extraInfo ? { extraInfo: error.extraInfo } : {}),
+      ...(error.errors ? { errors: error.errors } : {})
     }
   }
 }

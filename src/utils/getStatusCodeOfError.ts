@@ -1,8 +1,11 @@
-import { NotFoundError } from './errors'
+import { NotFoundError, ValidationError } from './errors'
 
 const getStatusCodeOfError = (error: Error): number => {
-  if (error instanceof NotFoundError) {
+  if (error.name === NotFoundError.name) {
     return 404
+  }
+  if (error.name === ValidationError.name) {
+    return 400
   }
 
   return 500
