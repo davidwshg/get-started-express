@@ -17,8 +17,8 @@ npm run watch
 - `npm start` -> Run application, the application needs by built.
 - `npm run watch` -> Run application and do restart with changes.
 - `npm run test` -> Run test with coverage.
-- `npm run doc` -> Open API documentation.
 - `npm run test:watch` -> Run test and reload with changes.
+- `npm run doc` -> Open API documentation.
 - `npm run lint` -> List issues captured by lint.
 - `npm run lint:fix` -> Fix some issues of lint.
 
