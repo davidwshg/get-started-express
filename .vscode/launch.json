@@ -33,6 +33,10 @@
       "request": "launch",
       "name": "run test",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["--coverage"],
+      "env": {
+        "NODE_ENV": "test"
+      },
       "runtimeVersion": "15.14.0",
       "internalConsoleOptions": "openOnFirstSessionStart"
     },
@@ -41,7 +45,10 @@
       "request": "launch",
       "name": "run test file",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["${file}"],
+      "args": ["${file}", "--coverage"],
+      "env": {
+        "NODE_ENV": "test"
+      },
       "runtimeVersion": "15.14.0",
       "internalConsoleOptions": "openOnFirstSessionStart"
     }

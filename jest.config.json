@@ -4,5 +4,7 @@
   ],
   "transform": {
     "^.+\\.ts?$": "ts-jest"
-  }
+  },
+  "globalSetup": "<rootDir>/src/__test__/setup.ts",
+  "globalTeardown": "<rootDir>/src/__test__/teardown.ts"
 }
