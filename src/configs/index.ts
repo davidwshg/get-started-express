@@ -1,1 +1,6 @@
-export const env: 'develop' | 'test' = (<'develop' | 'test' | undefined>process.env.NODE_ENV) || 'develop'
+const configs = {
+  env: (<'develop' | 'test' | undefined>process.env.NODE_ENV) || 'develop',
+  port: process.env.PORT || '5000'
+}
+
+export default configs

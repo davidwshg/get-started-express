@@ -1,7 +1,8 @@
 import { Router } from 'express'
-import { get, getById } from '../controllers/value'
-import validate from '../middlewares/validate'
 import * as yup from 'yup'
+
+import { value } from '../controllers'
+import { validate } from '../middlewares'
 
 const router = Router()
 
@@ -35,7 +36,7 @@ const router = Router()
  *  ["v1", "v2", "v3"]
  * @apiUse CommonErrors
  */
-router.get('/', get)
+router.get('/', value.get)
 
 /**
  * @api {get} /values/:id Get value by id
@@ -68,6 +69,6 @@ router.get<{ id: string }>('/:id', validate({
   params: yup.object({
     id: yup.number().required()
   })
-}), getById)
+}), value.getById)
 
 export default router

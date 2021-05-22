@@ -1,14 +1,14 @@
-import { NotFoundError, ValidationError } from './errors'
+import { NotFoundError, ValidationError, UnauthorizedError, ActionDeniedError } from './errors'
 
 const getStatusCodeOfError = (error: Error): number => {
-  if (error.name === NotFoundError.name) {
-    return 404
-  }
-  if (error.name === ValidationError.name) {
-    return 400
+  const statusCodes = {
+    [NotFoundError.name]: 404,
+    [ActionDeniedError.name]: 400,
+    [ValidationError.name]: 400,
+    [UnauthorizedError.name]: 401,
   }
 
-  return 500
+  return statusCodes[error.name] || 500
 }
 
 export default getStatusCodeOfError

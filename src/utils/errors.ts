@@ -35,6 +35,18 @@ export class InternalServiceError extends BaseError {
   }
 }
 
+export class ActionDeniedError extends BaseError {
+  constructor(defaultErrorParam: IDefaultErrorParam) {
+    super({ ...defaultErrorParam, name: 'ActionDeniedError' })
+  }
+}
+
+export class UnauthorizedError extends BaseError {
+  constructor(defaultErrorParam: IDefaultErrorParam) {
+    super({ ...defaultErrorParam, name: 'UnauthorizedError' })
+  }
+}
+
 export class ValidationError extends BaseError {
   public path?: string
   public errors?: Array<BaseError>
@@ -51,4 +63,4 @@ export class ValidationError extends BaseError {
   }
 }
 
-export const errorNames = [NotFoundError.name, InternalServiceError.name, ValidationError.name]
+export const errorNames = [NotFoundError.name, InternalServiceError.name, ValidationError.name, ActionDeniedError.name, UnauthorizedError.name]

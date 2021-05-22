@@ -1,8 +1,8 @@
 import cors from 'cors'
 import express from 'express'
 
-import value from './routes/value'
-import requestID from './middlewares/requestID'
+import { value } from './routes'
+import { requestID } from './middlewares'
 
 const app = express()
 

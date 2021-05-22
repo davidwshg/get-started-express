@@ -1,10 +1,10 @@
-export interface IDefaultLogParam {
+interface IDefaultLogParam {
   requestID: string,
   message: string,
   [name: string]: string | number | boolean
 }
 
-export interface ISystemLogParam {
+interface ISystemLogParam {
   type: string,
   message: string,
   [name: string]: string
