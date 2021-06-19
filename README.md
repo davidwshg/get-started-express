@@ -1,6 +1,6 @@
 # get-started-express
 
-Setup for Express with typescript application.
+Setup for Express with Typescript application.
 
 ## Getting Started
 
