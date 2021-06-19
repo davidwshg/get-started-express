@@ -1,10 +1,10 @@
 # get-started-express
 
-Setup for Express with Typescript application.
+Setup to get started web APIs with Express and Typescript.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine.
+These instructions will help you run on your local machine.
 
 ```
 cat .env.example > .env
