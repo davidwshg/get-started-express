@@ -1,0 +1,187 @@
+name: Typescript CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  install-dependencies:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache Node.js modules
+      uses: actions/cache@v2
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.npm
+        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - name: Cache node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - run: npm ci
+
+  lint:
+    runs-on: ubuntu-latest
+
+    needs: install-dependencies
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Load node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    needs: install-dependencies
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Load node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - run: npm test
+
+  build:
+    runs-on: ubuntu-latest
+
+    needs: install-dependencies
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Load node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - run: npm run build
+
+  generate-coverage:
+    runs-on: ubuntu-latest
+
+    needs: install-dependencies
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Load node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - run: npm run test:ci
+    # COVERAGE GENERATION #
+    - name: Generate a coverage value
+      id: coverage
+      run: |
+        STMTCOV="$( grep -o '[0-9].*%' coverage/summary.txt | sed -n 1p | rev | cut -c 2- | rev )"
+        BRANCHCOV="$( grep -o '[0-9].*%' coverage/summary.txt | sed -n 2p | rev | cut -c 2- | rev )"
+        FUNCTIONCOV="$( grep -o '[0-9].*%' coverage/summary.txt | sed -n 3p | rev | cut -c 2- | rev )"
+        LINECOV="$( grep -o '[0-9].*%' coverage/summary.txt | sed -n 4p | rev | cut -c 2- | rev )"
+        echo "##[set-output name=statements;]${STMTCOV}"
+        echo "##[set-output name=branches;]${BRANCHCOV}"
+        echo "##[set-output name=functions;]${FUNCTIONCOV}"
+        echo "##[set-output name=lines;]${LINECOV}"
+        echo "##[set-output name=statements-display;]${STMTCOV}%"
+        echo "##[set-output name=branches-display;]${BRANCHCOV}%"
+        echo "##[set-output name=functions-display;]${FUNCTIONCOV}%"
+        echo "##[set-output name=lines-display;]${LINECOV}%"
+    - name: Create badges directory if necessary
+      run: mkdir -p badges/master
+    - name: Generate line coverage badge
+      uses: emibcn/badge-action@v1
+      with:
+        label: 'Line Coverage'
+        status: ${{ steps.coverage.outputs.lines-display }}
+        path: badges/master/linecovbadge.svg
+        color: ${{
+          steps.coverage.outputs.lines > 70 && 'green' || steps.coverage.outputs.lines > 50 && 'yellow' || 'red' }}
+    - name: Generate statement coverage badge
+      uses: emibcn/badge-action@v1
+      with:
+        label: 'Statement Coverage'
+        status: ${{ steps.coverage.outputs.statements-display }}
+        path: badges/master/statementcovbadge.svg
+        color: ${{
+          steps.coverage.outputs.statements > 70 && 'green' || steps.coverage.outputs.statements > 50 && 'yellow' || 'red' }}
+    - name: Generate branch coverage badge
+      uses: emibcn/badge-action@v1
+      with:
+        label: 'Branch Coverage'
+        status: ${{ steps.coverage.outputs.branches-display }}
+        path: badges/master/branchcovbadge.svg
+        color: ${{
+          steps.coverage.outputs.branches > 70 && 'green' || steps.coverage.outputs.branches > 50 && 'yellow' || 'red' }}
+    - name: Generate function coverage badge
+      uses: emibcn/badge-action@v1
+      with:
+        label: 'Function Coverage'
+        status: ${{ steps.coverage.outputs.functions-display }}
+        path: badges/master/functioncovbadge.svg
+        color: ${{
+          steps.coverage.outputs.functions > 70 && 'green' || steps.coverage.outputs.functions > 50 && 'yellow' || 'red' }}
+    - name: Commit badge
+      run: |
+        pushd badges
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add "master/linecovbadge.svg"
+            git add "master/statementcovbadge.svg"
+            git add "master/branchcovbadge.svg"
+            git add "master/functioncovbadge.svg"
+            git commit -m "Add/Update badge" || true
+        popd
+    - name: Push badge commit
+      uses: ad-m/github-push-action@master
+      with:
+        force: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: refs/heads/badges
+        directory: badges
+
