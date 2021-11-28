@@ -13,6 +13,7 @@
     "watch": "nodemon src/server.ts",
     "test": "NODE_ENV=test jest --coverage",
     "doc": "apidoc -i ./src -o doc/ && live-server --open=doc --watch=doc",
+    "test:ci": "jest --config ./jest.config.json --runInBand --coverage && istanbul report --include coverage/coverage-final.json text-summary > coverage/summary.txt",
     "test:watch": "jest --watchAll",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
