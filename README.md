@@ -1,5 +1,7 @@
 # get-started-express
 
+![linecov](https://github.com/davidwshg/get-started-express/blob/badges/badges/master/linecovbadge.svg) ![stmtcov](https://github.com/davidwshg/get-started-express/blob/badges/badges/master/statementcovbadge.svg) ![branchcov](https://github.com/davidwshg/get-started-express/blob/badges/badges/master/branchcovbadge.svg) ![functioncov](https://github.com/davidwshg/get-started-express/blob/badges/badges/master/functioncovbadge.svg)
+
 Setup to get started web APIs with Express and Typescript.
 
 ## Getting Started

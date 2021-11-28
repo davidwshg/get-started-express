@@ -5,7 +5,7 @@
   "author": "David Washington",
   "license": "MIT",
   "engines": {
-    "node": "15.14.0"
+    "node": "16.8.0"
   },
   "scripts": {
     "build": "tsc",
