@@ -115,7 +115,7 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
-    - run: npm run test
+    - run: npm run test:ci
     # COVERAGE GENERATION #
     - name: Generate a coverage value
       id: coverage
