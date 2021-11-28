@@ -1,7 +1,7 @@
 import { BaseError, InternalServiceError, IDefaultErrorParam, errorNames } from './errors'
-import getStatusCodeOfError from './getStatusCodeOfError'
+import { getStatusCodeOfError } from './'
 
-const buildHTTPResponseError = (originalError: Error, requestID: string): {
+export const buildHTTPResponseError = (originalError: Error, requestID: string): {
   status: number,
   body: IDefaultErrorParam & { name: string, errors?: Array<BaseError & { path?: string }> }
 } => {
@@ -29,5 +29,3 @@ const buildHTTPResponseError = (originalError: Error, requestID: string): {
     }
   }
 }
-
-export default buildHTTPResponseError

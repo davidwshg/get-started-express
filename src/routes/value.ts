@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { value } from '../controllers'
 import { validate } from '../middlewares'
 
-const router = Router()
+export const valueRouter = Router()
 
 /**
  * @apiDefine CommonErrors
@@ -36,7 +36,7 @@ const router = Router()
  *  ["v1", "v2", "v3"]
  * @apiUse CommonErrors
  */
-router.get('/', value.get)
+valueRouter.get('/', value.get)
 
 /**
  * @api {get} /values/:id Get value by id
@@ -65,10 +65,8 @@ router.get('/', value.get)
  *  }
  * @apiUse CommonErrors
  */
-router.get<{ id: string }>('/:id', validate({
+valueRouter.get<{ id: string }>('/:id', validate({
   params: yup.object({
     id: yup.number().required()
   })
 }), value.getById)
-
-export default router
